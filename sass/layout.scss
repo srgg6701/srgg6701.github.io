@@ -1,0 +1,21 @@
+/*	height	*/
+html, body{
+  height: 100%;
+}
+#container {
+  height: 100%;
+}
+main{
+  min-height: 100%;
+  margin-bottom: -75px;
+  padding-bottom: 60px;
+}
+footer{
+	height:60px;
+}
+/*	width	*/
+nav, main, footer {
+  margin: auto !important;
+  max-width: 90%;
+  min-width: 640px;
+}
