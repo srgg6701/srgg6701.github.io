@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/srgg6701/srgg6701.github.io",
+  "authors": [
+    "srgg6701 <srgg67@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.24",
+    "angular-route": "~1.2.24",
+    "jquery": "~2.1.1",
+    "gulp": "~3.8.8",
+    "bootstrap": "~3.2.0"
+  }
+}
