@@ -1,0 +1,10 @@
+<ul class="nav navbar-nav navbar-right" ng-repeat="menu in menus">
+    <li class="dropdown" ng-repeat="(key,items) in menu">
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{key}}<b class="caret"></b></a>
+        <ul class="dropdown-menu" >
+            <li ng-repeat="item in items">
+                <a href="/{{item[0]}}">{{item[1]}}</a>
+            </li>
+        </ul>
+    </li>
+</ul>
