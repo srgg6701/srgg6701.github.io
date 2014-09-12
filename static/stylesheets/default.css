@@ -64,46 +64,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 5, ../../sass/layout.scss */
-html, body,
-div, span,
-applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  box-sizing: border-box;
-}
-
-/* line 9, ../../sass/layout.scss */
-html, body {
-  height: 100%;
-}
-
-/* line 13, ../../sass/layout.scss */
-#container {
-  height: 100%;
-  width: 100%;
-}
-
-/* line 18, ../../sass/layout.scss */
-#main, #footer {
-  width: 90%;
-  min-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* line 24, ../../sass/layout.scss */
-#main {
-  /* box-shadow покрывает следующий (на одном уровне) блок,
-     #footer, т.к. он смещается вверх из-за отрицательного
-     margin у #main */
-  -webkit-box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
-  margin-bottom: -60px;
-  min-height: 100%;
-  padding-bottom: 80px;
-}
-
 /* line 1, ../../sass/elements.scss */
 html, body {
   margin: 0;
@@ -126,4 +86,54 @@ main {
 nav {
   margin: auto -10px;
   padding: 10px;
+}
+
+/* line 1, ../../sass/classes.scss */
+.container {
+  width: 100%;
+}
+
+/* line 5, ../../sass/layout.scss */
+html, body,
+div, span,
+applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  box-sizing: border-box;
+}
+
+/* line 9, ../../sass/layout.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 13, ../../sass/layout.scss */
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 18, ../../sass/layout.scss */
+main, #footer {
+  width: 90%;
+  min-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 24, ../../sass/layout.scss */
+main {
+  /* box-shadow покрывает следующий (на одном уровне) блок,
+     #footer, т.к. он смещается вверх из-за отрицательного
+     margin у #main */
+  -webkit-box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  margin-bottom: -60px;
+  min-height: 100%;
+  padding-bottom: 80px;
+}
+
+/* line 11, ../../sass/default.scss */
+#content {
+  height: 100%;
 }

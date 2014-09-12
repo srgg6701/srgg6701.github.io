@@ -15,13 +15,13 @@ html, body {
   width: 100%;
 }
 // второй уровень
-#main, #footer{
+main, #footer{
   width: 90%;
   min-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
-#main{
+main{
   /* box-shadow покрывает следующий (на одном уровне) блок,
      #footer, т.к. он смещается вверх из-за отрицательного
      margin у #main */

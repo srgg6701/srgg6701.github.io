@@ -21,9 +21,9 @@
     </head>
     <body>
     	<div id="container">
-        	<div id="main">
+            <main>
                 <a name="top"></a>
-                <div class="navbar navbar-default container" role="navigation">
+                <nav class="navbar navbar-default container" role="navigation">
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -39,11 +39,9 @@
                         <div class="navbar-collapse nav-menu collapse" style="height: 0.800000011920929px;" ng-controller="menuController">
                         </div>
                     </div>
-                </div>
-                <main>
-                    <ng-view></ng-view>
-                </main>
-            </div>
+                </nav>
+                <ng-view></ng-view>
+            </main>
             <footer>
             	<div class="bottom-menu" id="footer">Footer</div>
             </footer>
