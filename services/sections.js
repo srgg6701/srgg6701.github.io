@@ -4,11 +4,11 @@ app.provider('mainMenu', function(){
     // http://stackoverflow.com/questions/15666048/angular-js-service-vs-provider-vs-factory
     this.$get = function() {
         return [
-            {'default':[
+            {'Главная':[
                 ['default','Главная']
             ]},
             {'first':[
-                ['one','one'],
+                ['one','one-text'],
                 ['two','two'],
                 ['three','three'],
                 ['fourth','fourth'],
