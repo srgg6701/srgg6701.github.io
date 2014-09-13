@@ -73,16 +73,27 @@ html, body {
 /* line 5, ../../sass/elements.scss */
 footer {
   background-color: #efefef;
-  line-height: 60px;
+  height: 60px;
   padding: 0;
 }
 
-/* line 10, ../../sass/elements.scss */
+/* line 11, ../../sass/elements.scss */
+#bottom-menu li {
+  display: table-cell;
+  list-style: none;
+  padding: 20px;
+}
+/* line 15, ../../sass/elements.scss */
+#bottom-menu li:first-child {
+  width: 100%;
+}
+
+/* line 20, ../../sass/elements.scss */
 main {
   box-sizing: border-box;
 }
 
-/* line 13, ../../sass/elements.scss */
+/* line 23, ../../sass/elements.scss */
 nav {
   margin: auto -10px;
   padding: 10px;
@@ -91,6 +102,11 @@ nav {
 /* line 1, ../../sass/classes.scss */
 .container {
   width: 100%;
+}
+
+/* line 4, ../../sass/classes.scss */
+.navbar-brand {
+  padding: 0;
 }
 
 /* line 5, ../../sass/layout.scss */
@@ -115,12 +131,11 @@ html, body {
 /* line 18, ../../sass/layout.scss */
 main, #footer {
   width: 90%;
-  min-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 24, ../../sass/layout.scss */
+/* line 23, ../../sass/layout.scss */
 main {
   /* box-shadow покрывает следующий (на одном уровне) блок,
      #footer, т.к. он смещается вверх из-за отрицательного
@@ -134,6 +149,13 @@ main {
 }
 
 /* line 11, ../../sass/default.scss */
+#bottom-menu {
+  display: table;
+  padding: 0;
+}
+
+/* line 15, ../../sass/default.scss */
 #content {
-  height: 100%;
+  padding: 20px;
+  padding-top: 10px;
 }

@@ -2,3 +2,8 @@
 .container {
   width: 100%;
 }
+
+/* line 4, ../../sass/classes.scss */
+.navbar-brand {
+  padding: 0;
+}

@@ -1,5 +1,5 @@
 @import "compass/reset";
-@import "compass/css3/";
+@import "compass/css3";
 
 @import "variables";
 @import "elements";
@@ -8,6 +8,11 @@
 @import "layout";
 @import "mixins";
 
+#bottom-menu{
+  display: table;
+  padding: 0;
+}
 #content{
-  height: 100%;
+  padding: 20px;
+  padding-top: 10px;
 }

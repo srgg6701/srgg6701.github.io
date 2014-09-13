@@ -7,16 +7,27 @@ html, body {
 /* line 5, ../../sass/elements.scss */
 footer {
   background-color: #efefef;
-  line-height: 60px;
+  height: 60px;
   padding: 0;
 }
 
-/* line 10, ../../sass/elements.scss */
+/* line 11, ../../sass/elements.scss */
+#bottom-menu li {
+  display: table-cell;
+  list-style: none;
+  padding: 20px;
+}
+/* line 15, ../../sass/elements.scss */
+#bottom-menu li:first-child {
+  width: 100%;
+}
+
+/* line 20, ../../sass/elements.scss */
 main {
   box-sizing: border-box;
 }
 
-/* line 13, ../../sass/elements.scss */
+/* line 23, ../../sass/elements.scss */
 nav {
   margin: auto -10px;
   padding: 10px;

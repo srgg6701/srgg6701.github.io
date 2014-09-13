@@ -4,18 +4,10 @@ app.provider('mainMenu', function(){
     // http://stackoverflow.com/questions/15666048/angular-js-service-vs-provider-vs-factory
     this.$get = function() {
         return [
-            {xtra:[
-                ['contacts','Контакты'],
-                ['test','Тестовый раздел']
+            {default:[
+                ['default','Главная']
             ]},
-            {fourth:[
-                ['one','one'],
-                ['two','two'],
-                ['three','three'],
-                ['fourth','fourth'],
-                ['fife','fife']
-            ]},
-            {third:[
+            {first:[
                 ['one','one'],
                 ['two','two'],
                 ['three','three'],
@@ -29,15 +21,23 @@ app.provider('mainMenu', function(){
                 ['fourth','fourth'],
                 ['fife','fife']
             ]},
-            {first:[
+            {third:[
                 ['one','one'],
                 ['two','two'],
                 ['three','three'],
                 ['fourth','fourth'],
                 ['fife','fife']
             ]},
-            {default:[
-                ['default','Главная']
+            {fourth:[
+                ['one','one'],
+                ['two','two'],
+                ['three','three'],
+                ['fourth','fourth'],
+                ['fife','fife']
+            ]},
+            {xtra:[
+                ['contacts','Контакты'],
+                ['test','Тестовый раздел']
             ]}
         ]
     };

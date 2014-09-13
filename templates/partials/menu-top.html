@@ -1,4 +1,5 @@
-<ul class="nav navbar-nav navbar-right" ng-repeat="menu in menus">
+<!--
+<menu class="nav navbar-nav navbar-right" ng-repeat="menu in menus">
     <li class="dropdown" ng-repeat="(key,items) in menu">
         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{key}}<b class="caret"></b></a>
         <ul class="dropdown-menu" >
@@ -6,5 +7,29 @@
                 <a href="/{{item[0]}}">{{item[1]}}</a>
             </li>
         </ul>
+    </li>  {    first:[
+                    ['one','one'],
+                    ['two','two'],
+                    ['three','three'],
+                    ['fourth','fourth'],
+                    ['fife','fife']
+                ]
+           },
+           {    second:[
+                    ['one','one'],
+                    ['two','two'],
+                    ['three','three'],
+                    ['fourth','fourth'],
+                    ['fife','fife']
+                ]
+           }, ng-repeat="(key,items) in menu"
+
+</menu>-->
+<menu class="nav navbar-nav navbar-right">
+    <li class="dropdown"  ng-repeat="(index,menu) in menus">
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" ng-repeat="(key,items) in menu">{{key}}<b class="caret"></b></a>
+        <ul class="dropdown-menu" ng-repeat="items in menu">
+            <li ng-repeat="item in items"><a href="/{{item[0]}}">{{item[1]}}</a></li>
+        </ul>
     </li>
-</ul>
+</menu>

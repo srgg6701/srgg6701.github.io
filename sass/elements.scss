@@ -4,8 +4,18 @@ html, body {
 }
 footer {
   background-color: #efefef;
-  line-height: 60px;
+  height: 60px;
   padding: 0;
+}
+li{
+  #bottom-menu &{
+    display: table-cell;
+    list-style: none;
+    padding: 20px;
+    &:first-child{
+      width: 100%;
+    }
+  }
 }
 main{
   box-sizing:border-box;
