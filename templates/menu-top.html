@@ -1,0 +1,10 @@
+<menu class="nav navbar-nav navbar-right">
+    <li class="dropdown"  ng-repeat="(index,menu) in menus">
+        <a ng-repeat="(section_text,section_content) in menu" href="{{ (section_content == '[object Object]')? 'javascript:void(0)': '/'+section_content }}" class="dropdown-toggle" data-toggle="dropdown">{{section_text}}<b class="caret" ng-if="section_content == '[object Object]'"></b></a>
+        <ul class="dropdown-menu" ng-repeat="(section_text,section_object) in menu" ng-if="section_object=='[object Object]'">
+            <li ng-repeat="link in section_object.links">
+                <a href="/{{ section_object.dir }}/{{link[0]}}">{{link[1]}}</a>
+            </li>
+        </ul>
+    </li>
+</menu>
