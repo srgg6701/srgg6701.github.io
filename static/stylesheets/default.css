@@ -64,78 +64,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 1, ../../sass/elements.scss */
+/* line 1, ../../libs/sass/elements.scss */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-/* line 5, ../../sass/elements.scss */
+/* line 5, ../../libs/sass/elements.scss */
 footer {
   background-color: #efefef;
   height: 60px;
   padding: 0;
 }
 
-/* line 11, ../../sass/elements.scss */
+/* line 11, ../../libs/sass/elements.scss */
 #bottom-menu li {
   display: table-cell;
   list-style: none;
   padding: 20px;
 }
-/* line 15, ../../sass/elements.scss */
+/* line 15, ../../libs/sass/elements.scss */
 #bottom-menu li:first-child {
   width: 100%;
 }
 
-/* line 20, ../../sass/elements.scss */
+/* line 20, ../../libs/sass/elements.scss */
 main {
   box-sizing: border-box;
 }
 
-/* line 23, ../../sass/elements.scss */
+/* line 23, ../../libs/sass/elements.scss */
 nav {
   margin: auto -10px;
   padding: 10px;
 }
 
-/* line 1, ../../sass/classes.scss */
+/* line 1, ../../libs/sass/classes.scss */
 .container {
   width: 100%;
 }
 
-/* line 4, ../../sass/classes.scss */
+/* line 4, ../../libs/sass/classes.scss */
 .navbar-brand {
   padding: 0;
 }
 
-/* line 5, ../../sass/layout.scss */
+/* line 5, ../../libs/sass/layout.scss */
 html, body,
 div, span,
 applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 9, ../../sass/layout.scss */
+/* line 9, ../../libs/sass/layout.scss */
 html, body {
   height: 100%;
 }
 
-/* line 13, ../../sass/layout.scss */
+/* line 13, ../../libs/sass/layout.scss */
 #container {
   height: 100%;
   width: 100%;
 }
 
-/* line 18, ../../sass/layout.scss */
+/* line 18, ../../libs/sass/layout.scss */
 main, #footer {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 23, ../../sass/layout.scss */
+/* line 23, ../../libs/sass/layout.scss */
 main {
   /* box-shadow покрывает следующий (на одном уровне) блок,
      #footer, т.к. он смещается вверх из-за отрицательного
@@ -148,13 +150,13 @@ main {
   padding-bottom: 80px;
 }
 
-/* line 11, ../../sass/default.scss */
+/* line 11, ../../libs/sass/default.scss */
 #bottom-menu {
   display: table;
   padding: 0;
 }
 
-/* line 15, ../../sass/default.scss */
+/* line 15, ../../libs/sass/default.scss */
 #content {
   padding: 20px;
   padding-top: 10px;
