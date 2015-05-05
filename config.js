@@ -27,9 +27,14 @@ app.config( function($routeProvider, $locationProvider, mainMenuProvider){
                     console.log('alias: '+alias+', %cpath: '+path, 'color: rgba(0,155,0,0.5)');
                     // http://weblogs.asp.net/dwahlin/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs
                     $routeProvider.when(path, {
-                        templateUrl: 'views' + path + '.html',
+                        /** http://stackoverflow.com/questions/22595878/tried-to-load-angular-more-than-once
+                            проблема с зацикленной попыткой загрузки angular'а
+                         */
+                        templateUrl: 'app/views/404.html',
+                        controller:  'defaultController'
+                        //templateUrl: 'views' + path + '.html',
                         //resolve: resolveController('controllers'+path+'.js')
-                        controller: alias + 'Controller'
+                        //controller: alias + 'Controller'
                     });
                     console.log('templateUrl: %cviews' + path + '.html', 'color: blue' ,'controller: controllers'+path + '.js');
                 }
