@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('../');
+var gulp = require('../index');
 var fs = require('graceful-fs');
 var rimraf = require('rimraf');
 var mkdirp = require('mkdirp');

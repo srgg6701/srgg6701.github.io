@@ -1,4 +1,7 @@
+@import "variables";
+@import "mixins";
 html, body {
+  line-height:1.5;
   margin: 0;
   padding: 0;
 }
@@ -6,16 +9,6 @@ footer {
   background-color: #efefef;
   height: 60px;
   padding: 0;
-}
-li{
-  #bottom-menu &{
-    display: table-cell;
-    list-style: none;
-    padding: 20px;
-    &:first-child{
-      width: 100%;
-    }
-  }
 }
 main{
   box-sizing:border-box;

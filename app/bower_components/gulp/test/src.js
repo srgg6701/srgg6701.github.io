@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('../');
+var gulp = require('../index');
 var should = require('should');
 var join = require('path').join;
 

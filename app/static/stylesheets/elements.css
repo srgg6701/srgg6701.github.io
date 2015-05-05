@@ -1,0 +1,24 @@
+/* line 3, ../../../_dev/sass/elements.scss */
+html, body {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 8, ../../../_dev/sass/elements.scss */
+footer {
+  background-color: #efefef;
+  height: 60px;
+  padding: 0;
+}
+
+/* line 13, ../../../_dev/sass/elements.scss */
+main {
+  box-sizing: border-box;
+}
+
+/* line 16, ../../../_dev/sass/elements.scss */
+nav {
+  margin: auto -10px;
+  padding: 10px;
+}

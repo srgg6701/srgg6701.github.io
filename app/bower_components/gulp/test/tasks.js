@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('../');
+var gulp = require('../index');
 var Q = require('q');
 var should = require('should');
 require('mocha');
