@@ -15,11 +15,11 @@
         <link rel="stylesheet" href="app/static/stylesheets/default.css">
         <link rel="stylesheet" href="app/static/stylesheets/components.css"/>
         <link rel="stylesheet" href="app/static/stylesheets/_xtra.css"/>
-        <script data-main="libs/js/require-config" src="app/libs/js/require.js"></script>
+        <!--<script data-main="libs/js/require-config" src="app/libs/js/require.js"></script>-->
         <script src="app/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="app/static/js/default.js"></script>
-<!-- см. шаблон в секции SCSS -->
+        <!-- см. шаблон в секции SCSS -->
     </head>
     <body>
     	<div id="container">
@@ -55,15 +55,16 @@
         <script src="app/bower_components/angular-resource/angular-resource.min.js"></script>
         <!---->
         <script src="app/app.js"></script>
-
         <script src="app/services/sections.js"></script>
-
         <script src="config.js"></script>
-
-        <script src="app/controllers/menuController.js"></script>
-        <script src="app/controllers/defaultController.js"></script>
-        <script src="app/controllers/headController.js"></script>
         <script src="app/directives/menu.js"></script>
+        <!---->
+        <script src="app/controllers/menuController.js"></script>
+        <script src="app/controllers/headController.js"></script>
+        <script src="app/controllers/defaultController.js"></script>
+        <script src="app/controllers/oneController.js"></script>
+        <script src="app/controllers/testController.js"></script>
+        <script src="app/controllers/nowayController.js"></script>
         <script>
             window.onload=function() {
                 var intv = setInterval(function() {

@@ -1,0 +1,17 @@
+/* line 4, ../../../_dev/sass/components.scss */
+#bottom-menu {
+  display: table;
+  margin: 0;
+  padding: 0;
+}
+/* line 8, ../../../_dev/sass/components.scss */
+#bottom-menu li {
+  display: table-cell;
+  line-height: 20px;
+  list-style: none;
+  padding: 20px;
+}
+/* line 13, ../../../_dev/sass/components.scss */
+#bottom-menu li:first-child {
+  width: 100%;
+}
