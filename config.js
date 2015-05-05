@@ -32,7 +32,7 @@ app.config( function($routeProvider, $locationProvider, mainMenuProvider){
                         //controller: 'menuController'
                         controller: section+'Controller'
                     }).when('/temp', {
-                        templateUrl: 'views/temp.html',
+                        templateUrl: 'app/views/temp.html',
                         controller: 'testController' // NOT temp!
                     });
                 console.log('templateUrl: '+'views/' + alias + '.html\ncontroller: '+alias + 'Controller');
@@ -41,10 +41,10 @@ app.config( function($routeProvider, $locationProvider, mainMenuProvider){
     }
     $routeProvider
         .when('/'||'/index.html',{
-            templateUrl:    'views/default.html',
+            templateUrl:    'app/views/default.html',
             controller:     'defaultController'
         }).otherwise({
-            templateUrl:    'views/404.html',
+            templateUrl:    'app/views/404.html',
             controller:     'defaultController'
         });
     $locationProvider.html5Mode(true);

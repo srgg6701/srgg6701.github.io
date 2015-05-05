@@ -1,12 +1,12 @@
 <!doctype html>
 <html ng-app="Default">
 <head ng-controller="headController">
-    <script>
+    <!--<script>
         var xtra_route = '';
         if(location.hostname.indexOf('.io')!=-1)
             xtra_route = "srgg6701/";
         document.write('<base href="/'+xtra_route+'">');
-    </script>
+    </script>-->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="static/stylesheets/_xtra.css"/>
         <link   media="screen, projection" rel="stylesheet" type="text/css" href="static/stylesheets/default.css">
-        <script data-main="libs/js/require-config" src="libs/js/require.js"></script>
+        <script data-main="libs/js/require-config" src="app/libs/js/require.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/default.js"></script>
@@ -54,16 +54,16 @@
         <script src="bower_components/angular-route/angular-route.min.js"></script>
         <script src="bower_components/angular-resource/angular-resource.min.js"></script>
         <!---->
-        <script src="app.js"></script>
+        <script src="app/app.js"></script>
 
-        <script src="services/sections.js"></script>
+        <script src="app/services/sections.js"></script>
 
         <script src="config.js"></script>
 
-        <script src="controllers/menuController.js"></script>
-        <script src="controllers/defaultController.js"></script>
-        <script src="controllers/headController.js"></script>
-        <script src="directives/menu.js"></script>
+        <script src="app/controllers/menuController.js"></script>
+        <script src="app/controllers/defaultController.js"></script>
+        <script src="app/controllers/headController.js"></script>
+        <script src="app/directives/menu.js"></script>
         <script>
             window.onload=function() {
                 var intv = setInterval(function() {
