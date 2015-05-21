@@ -11,7 +11,7 @@ app.provider('mainMenu', function(){
                     ['one', 'one-text'],
                     ['two', 'two'],
                     ['three', 'three'],
-                    ['fourth', 'fourth'],
+                    ['four', 'four'],
                     ['fife', 'fife']
                 ]}
             },{
@@ -21,7 +21,7 @@ app.provider('mainMenu', function(){
                     ['one','one'],
                     ['two','two'],
                     ['three','three'],
-                    ['fourth','fourth'],
+                    ['four','four'],
                     ['fife','fife']
                 ]}
             },{
@@ -51,6 +51,6 @@ app.provider('mainMenu', function(){
                     ['contacts','Контакты'],
                     ['test','Тестовый раздел']
                 ]}
-            }]  // return end
+            }];  // return end
     };  // function end
 });
