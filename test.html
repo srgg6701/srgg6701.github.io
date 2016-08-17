@@ -4,3 +4,428 @@
     <h1>Test</h1>
   </body>
 </html>
+<script>
+  // grunt comes here!
+  'use strict';
+
+var WEB_APP_CONTEXT = 'myvhi';
+var IMAGES_ROOT = '/images';
+
+var CONNECT_CONFIG = (function () {
+    var LIVERELOAD_PORT = 36999;
+    return {
+        liveReloadPort: LIVERELOAD_PORT,
+        lrSnippet: require('connect-livereload')({port: LIVERELOAD_PORT}),
+        proxySnippet: require('grunt-connect-proxy/lib/utils').proxyRequest,
+        rewriteRulesSnippet: require('grunt-connect-rewrite/lib/utils').rewriteRequest,
+        mountFolder: function (connect, dir) {
+            return require('serve-static')(require('path').resolve(dir));
+        }
+    }
+})();
+
+var DIRECTORIES = (function () {
+    var srcDir = 'src';
+    var buildDir = 'build';
+    var mainSrc = srcDir + '/main';
+    var nodeModulesDir = 'node_modules';
+    var fwkDir = nodeModulesDir + '/vhi-ui-framework';
+    var wwwRoot = buildDir + '/wwwRoot';
+    var siteDir = wwwRoot + '/' + WEB_APP_CONTEXT;
+    var distDir = 'dist';
+    var resourcesDir = distDir + '/resources/META-INF/myvhi';
+
+    // Configuration property for src and build directories
+    return {
+        npm: {
+            root: nodeModulesDir,
+            fwk: {
+                root: fwkDir,
+                src: fwkDir + '/src'
+            }
+        },
+        src: {
+            root: srcDir,
+            jade: {
+                main: mainSrc + '/jade',
+                fwk: fwkDir + '/src/main/jade'
+            },
+            less: {
+                main: mainSrc + '/less',
+                fwk: fwkDir + '/src/main/less'
+            },
+            javascript: {
+                main: mainSrc + '/js',
+                fwk: fwkDir + '/src/main/js'
+            },
+            fonts: {
+                fwk: fwkDir + '/src/main/fonts',
+                bootstrap: nodeModulesDir + '/bootstrap/fonts'
+            },
+            json: {
+                locales: mainSrc + '/locales'
+            }
+        },
+        build: {
+            root: buildDir,
+            wwwRoot: wwwRoot,
+            site: siteDir,
+            less: {
+                site: siteDir + '/styles'
+            },
+            javascript: {
+                site: siteDir + '/scripts'
+            },
+            json: {
+                locales: siteDir + '/locales'
+            }
+        },
+        dist: {
+            root: distDir,
+            resources: resourcesDir,
+            less: resourcesDir + '/styles',
+            javascript: resourcesDir + '/scripts',
+            jade: resourcesDir + '/html',
+            locales: resourcesDir + '/locales'
+        }
+    };
+})();
+
+module.exports = function (grunt) {
+
+    grunt.file.defaultEncoding = 'utf8';
+    var npmConfig = grunt.file.readJSON('package.json');
+
+    // Prints out build timings
+    // require('time-grunt')(grunt);
+    // Automagically loads grunt tasks
+    require('load-grunt-tasks')(grunt);
+
+    grunt.initConfig({
+        pkg: npmConfig,
+        properties: {
+            config: ['grunt-default.properties', 'grunt-override.properties'],
+            messages: []
+        },
+        dir: DIRECTORIES,
+        clean: {
+            build: [DIRECTORIES.build.wwwRoot],
+            dist: [DIRECTORIES.dist.root]
+        },
+        jade: {
+            site: {
+                options: {
+                    client: false,
+                    pretty: true,
+                    data: {
+                        contextRoot: '/' + WEB_APP_CONTEXT + '/',
+                        imagesRoot: IMAGES_ROOT
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src.jade.main %>',
+                    src: ['**/*.jade', '!{,includes/**/*}', '!{,fragments/**/*}', '!{,templates/**/*}', '!node_modules/**'],
+                    dest: '<%= dir.build.site %>/',
+                    ext: '.html'
+                }]
+            },
+            pkg: {
+                options: {
+                    client: false,
+                    pretty: true,
+                    data: {
+                        contextRoot: '/' + WEB_APP_CONTEXT + '/',
+                        imagesRoot: IMAGES_ROOT
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src.jade.main %>',
+                    src: ['**/*.jade', '!{,includes/**/*}', '!{,templates/**/*}', '!node_modules/**'],
+                    dest: '<%= dir.dist.jade %>/',
+                    ext: '.html'
+                }]
+            }
+        },
+        less: {
+            options: {
+                paths: [DIRECTORIES.npm.root, DIRECTORIES.npm.fwk.src + '/thirdparty/less']
+            },
+            site: {
+                files: [{
+                    expand: "true",
+                    cwd: "<%= dir.src.less.main %>/pages",
+                    src: ["**/*.less", '!node_modules/**'],
+                    dest: "<%= dir.build.less.site %>/",
+                    ext: ".css"
+                }]
+            },
+            pkg: {
+                files: [{
+                    expand: "true",
+                    cwd: "<%= dir.src.less.main %>/pages",
+                    src: ["**/*.less", '!node_modules/**'],
+                    dest: "<%= dir.dist.less %>/",
+                    ext: ".css"
+                }]
+            }
+        },
+        browserify: {
+            site: {
+                files: [
+                    {
+                        expand: "true",
+                        cwd: "<%= dir.src.javascript.main %>/pages/",
+                        src: ["**/*.js", '!node_modules/**'],
+                        dest: "<%= dir.build.javascript.site %>/",
+                        ext: ".js"
+                    }]
+            },
+            pkg: {
+                files: [
+                    {
+                        expand: "true",
+                        cwd: "<%= dir.src.javascript.main %>/pages/",
+                        src: ["**/*.js", '!node_modules/**'],
+                        dest: "<%= dir.dist.javascript %>/",
+                        ext: ".js"
+                    }]
+            }
+        },
+        jsonlint: {
+            all: {
+                src: [ '<%= dir.src.json.locales%>/en/translation.json' ],
+                options: {
+                    formatter: 'prose'
+                }
+            }
+        },
+        copy: {
+            site: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src.fonts.fwk %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.build.less.site %>/fonts'
+                }, {
+                    expand: true,
+                    cwd: '<%= dir.src.fonts.bootstrap %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.build.less.site %>/fonts'
+                }, {
+                    expand: true,
+                    cwd: '<%= dir.src.json.locales %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.build.json.locales %>'
+                }]
+            },
+            pkg: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src.fonts.fwk %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.dist.less %>/fonts'
+                }, {
+                    expand: true,
+                    cwd: '<%= dir.src.fonts.bootstrap %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.dist.less %>/fonts'
+                }, {
+                    expand: true,
+                    cwd: '<%= dir.src.json.locales %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.dist.locales %>'
+                }]
+            },
+            locales: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src.json.locales %>',
+                    src: ['**/*'],
+                    dest: '<%= dir.dist.locales %>'
+                }]
+            }
+
+        },
+        concurrent: {
+            site: ['jade:site', 'less:site', 'browserify:site', 'copy:site', 'jsonlint'],
+            pkg: ['jade:pkg', 'less:pkg', 'browserify:pkg', 'copy:pkg', 'jsonlint']
+
+        },
+        connect: {
+            options: {
+                port: '<%= config.httpPort %>',
+                hostname: '<%= config.httpServer %>'
+            },
+            proxies: [
+                {
+                    context: '/' + WEB_APP_CONTEXT +'/rest',
+                    host: '<%= config.weblogicServer %>',
+                    port: '<%= config.weblogicPort %>'
+                },
+                {
+                    context: '/online-services',
+                    host: '<%= config.onlineServicesProxyUrl %>',
+                    port: '<%= config.onlineServicesProxyPort %>'
+                },
+                {
+                    context: '/weblogic',
+                    host: '<%= config.weblogicServer %>',
+                    port: '<%= config.weblogicPort %>',
+                    rewrite: {
+                        '^/weblogic': ''
+                    }
+                }
+            ],
+            rules: [
+                {
+                    from: '/' + WEB_APP_CONTEXT + '/images/(.*)$',
+                    to: '<%= config.imagesProxy %>/$1',
+                    redirect: 'permanent'
+                }, {
+                    from: '/images/(.*)$',
+                    to: '<%= config.imagesProxy %>/$1',
+                    redirect: 'permanent'
+                }
+            ],
+            livereload: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            CONNECT_CONFIG.lrSnippet,
+                            CONNECT_CONFIG.proxySnippet,
+                            CONNECT_CONFIG.rewriteRulesSnippet,
+                            CONNECT_CONFIG.mountFolder(connect, DIRECTORIES.build.wwwRoot)
+                        ];
+                    }
+                }
+            }
+        },
+        karma: {
+            singleRun: {
+                configFile: 'myvhi.karma.conf.js',
+                singleRun: true,
+                browsers: ['PhantomJS'],
+                reporters: ['progress', 'jenkins']
+            },
+            watch: {
+                configFile: 'myvhi.karma.conf.js',
+                browsers: ['PhantomJS']
+            },
+            multiBrowser: {
+                configFile: 'myvhi.karma.conf.js',
+                singleRun: true,
+                browsers: ['Chrome', 'Firefox', 'IE']
+            }
+        },
+        watch: {
+            buildfile: {
+                files: ['Gruntfile.js', 'grunt-override.properties'],
+                tasks: ['build']
+            },
+            jade: {
+                files: ['<%= dir.src.jade.main %>/**/*.jade'],
+                tasks: ['jade']
+            },
+            less: {
+                files: ['<%= dir.src.less.main %>/**/*.less'],
+                tasks: ['less']
+            },
+            jade_browserify: {
+                files: ['<%= dir.src.jade.main %>/templates/**/*.jade'],
+                tasks: ['jade', 'browserify']
+            },
+            js_browserify: {
+                files: ['<%= dir.src.javascript.main %>/**/*.js'],
+                tasks: ['browserify']
+            },
+            copy: {
+                files: ['<%= dir.src.json.locales %>/**/*.json'],
+                tasks: ['copy']
+            },
+            livereload: {
+                options: {
+                    livereload: CONNECT_CONFIG.liveReloadPort
+                },
+                files: [
+                    '<%= dir.build.wwwRoot %>/**/*'
+                ],
+                tasks: []
+            }
+        }
+    });
+
+    grunt.task.run('properties');
+
+    grunt.registerTask('build', [
+        'concurrent:site',
+        'concurrent:pkg'
+    ]);
+
+    grunt.registerTask('rebuild', [
+        'clean',
+        'build'
+    ]);
+
+    grunt.registerTask('buildServer', [
+        'concurrent:site'
+    ]);
+    grunt.registerTask('rebuildServer', [
+        'clean:build',
+        'buildServer'
+    ]);
+
+    grunt.registerTask('watch:pkg', function () {
+        var config = {
+            buildfile: {
+                files: ['Gruntfile.js', 'grunt-override.properties'],
+                tasks: ['build:pkg']
+            },
+            jade: {
+                files: ['<%= dir.src.jade.main %>/**/*.jade'],
+                tasks: ['jade:pkg']
+            },
+            less: {
+                files: ['<%= dir.src.less.main %>/**/*.less'],
+                tasks: ['less:pkg']
+            },
+            browserify: {
+                files: ['<%= dir.src.javascript.main %>/**/*.js'],
+                tasks: ['browserify:pkg']
+            },
+            copy: {
+                files: ['<%= dir.src.json.locales %>'],
+                tasks: ['copy:pkg']
+            }
+        };
+
+        grunt.config('watch', config);
+        grunt.task.run('watch');
+    });
+
+    grunt.registerTask('serve', function (target) {
+        grunt.task.run([
+            'rebuild', // clean, build
+            'configureProxies',
+            'configureRewriteRules',
+            'connect:livereload',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('make', function (target) {
+        grunt.task.run([
+            'rebuild'
+        ]);
+    });
+
+    grunt.registerTask('package', ['clean', 'concurrent:pkg', 'karma:singleRun']);
+
+    grunt.registerTask('watchPackage', ['clean', 'concurrent:pkg', 'watch:pkg']);
+
+}
+
+  
+  
+</script>
