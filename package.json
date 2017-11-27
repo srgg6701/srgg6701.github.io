@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "html5-boilerplate-npm@^4.1.0-B",
+        "scope": null,
+        "escapedName": "html5-boilerplate-npm",
+        "name": "html5-boilerplate-npm",
+        "rawSpec": "^4.1.0-B",
+        "spec": ">=4.1.0-B <5.0.0",
+        "type": "range"
+      },
+      "c:\\Users\\sergei.klevtsov\\Projects\\-Private"
+    ]
+  ],
+  "_from": "html5-boilerplate-npm@>=4.1.0-B <5.0.0",
+  "_id": "html5-boilerplate-npm@4.1.0-B",
+  "_inCache": true,
+  "_location": "/html5-boilerplate-npm",
+  "_npmUser": {
+    "name": "parroit",
+    "email": "andrea.parodi@ebansoftware.net"
+  },
+  "_npmVersion": "1.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "html5-boilerplate-npm@^4.1.0-B",
+    "scope": null,
+    "escapedName": "html5-boilerplate-npm",
+    "name": "html5-boilerplate-npm",
+    "rawSpec": "^4.1.0-B",
+    "spec": ">=4.1.0-B <5.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/html5-boilerplate-npm/-/html5-boilerplate-npm-4.1.0B.tgz",
+  "_shasum": "bf683b7756b57d21203acf316ecbf070c7adeb8a",
+  "_shrinkwrap": null,
+  "_spec": "html5-boilerplate-npm@^4.1.0-B",
+  "_where": "c:\\Users\\sergei.klevtsov\\Projects\\-Private",
+  "author": {
+    "name": "Andrea Parodi"
+  },
+  "bugs": {
+    "url": "https://github.com/parroit/html5-boilerplate/issues"
+  },
+  "dependencies": {},
+  "description": "install html5-boilerplate via npm",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "bf683b7756b57d21203acf316ecbf070c7adeb8a",
+    "tarball": "https://registry.npmjs.org/html5-boilerplate-npm/-/html5-boilerplate-npm-4.1.0B.tgz"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "https://github.com/parroit/html5-boilerplate#readme",
+  "keywords": [
+    "html5-boilerplate",
+    "npm"
+  ],
+  "maintainers": [
+    {
+      "name": "parroit",
+      "email": "andrea.parodi@ebansoftware.net"
+    }
+  ],
+  "name": "html5-boilerplate-npm",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README.md file found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parroit/html5-boilerplate.git"
+  },
+  "version": "4.1.0-B"
+}
