@@ -1,35 +1,53 @@
 @import "tailwindcss";
 
 :root {
+  --blue-grey: #737f8f;
 }
-
+a {
+  color: #5282c1;
+}
 h1 {
   font-size: 1.5rem;
   font-weight: 600;
 }
-
 h2 {
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 4;
 }
-
 main article .image-box {
   background-size: contain;
   background-repeat: no-repeat;
+  background-size: cover;
 }
-
 .a-block {
   aspect-ratio: 1 / 1.15;
-  border: solid 1px;
   display: flex;
   flex-direction: column;
 }
 .a-block .image-box {
-  border: solid 1px red;
   height: 75%;
 }
 .a-block .title-box {
-  border: solid 1px blue;
   height: 25%;
+}
+.absolute.wrapper {
+  outline: solid 2px #ccc;
+}
+.absolute.wrapper:hover {
+  outline-color: var(--blue-grey);
+  outline-width: 2px;
+  z-index: 2;
+}
+.absolute.wrapper img {
+  opacity: 0;
+}
+.absolute.wrapper img:hover {
+  opacity: 1;
+}
+.imgOver, .artOver:hover {
+  outline: solid 2px var(--blue-grey);
+}
+.txtBorderColor {
+  color: var(--blue-grey);
 }
