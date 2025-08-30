@@ -8,7 +8,6 @@ const NotFound = lazy(() => import("./views/notFound"));
 
 export default function App() {
   const location = useLocation();
-  console.log({location});
   return (
     <div className='min-h-dvh mx-auto px-4 max-w-6xl'>
       <Header pathname={location.pathname} />

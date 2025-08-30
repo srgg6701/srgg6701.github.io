@@ -54,7 +54,8 @@ main article .image-box {
   font-size: 1rem;
   padding: 0.25rem 1rem;
 }
-.skill:hover {
+.skill:hover,
+span.selected {
   color: #FFF;
   cursor: pointer;
   background-color: var(--blue-grey);
