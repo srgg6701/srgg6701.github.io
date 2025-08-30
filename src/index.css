@@ -45,20 +45,26 @@ main article .image-box {
 .absolute.wrapper img:hover {
   opacity: 1;
 }
-.imgOver, .artOver:hover {
+.imgOver,
+.artOver:hover {
   outline: solid 2px var(--blue-grey);
 }
 .skill {
   display: inline-block;
   font-weight: normal;
   font-size: 1rem;
+  margin: 0 1px;
   padding: 0.25rem 1rem;
+  line-height: 2;
 }
-.skill:hover,
-span.selected {
-  color: #FFF;
+.skill:hover {
   cursor: pointer;
-  background-color: var(--blue-grey);
+  outline: solid 1px var(--blue-grey);
+  padding: 3px 1rem;
+}
+span.selected {
+  cursor: pointer;
+  background-color: #caced4;
 }
 .txtBorderColor {
   color: var(--blue-grey);

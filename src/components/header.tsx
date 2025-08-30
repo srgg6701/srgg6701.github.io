@@ -1,8 +1,10 @@
-import { useState } from "react";
 import { usePortfolio, type Filter } from "../data/items";
 export default function Header({ pathname }: { pathname: string }) {
-  const setFilter = usePortfolio((s) => s.setFilter);
-  const [selectedSkill, setSelectedSkill] = useState("all");
+  const filters = usePortfolio((s) => s.filters);
+  const toggleFilter = usePortfolio((s) => s.toggleFilter);
+  const clearFilters = usePortfolio((s) => s.clearFilters);
+  
+  console.log(filters.size, filters);
   const skills: Filter[] = [
     "React",
     "Vue.js",
@@ -38,19 +40,8 @@ export default function Header({ pathname }: { pathname: string }) {
       </div>
     );
   };
-  function handleSkills(skill: Filter) {
-    setSelectedSkill(skill);
-    setFilter(skill);
-  }
-  function selectSkill(skill: Filter) {
-    return (
-      <span
-        className={`skill${selectedSkill === skill ? " selected" : ""}`}
-        onClick={() => handleSkills(skill)}
-      >
-        {skill === "all"? <span>[ Clear Filter ]</span> : skill}
-      </span>
-    );
+  function dropSkills() {
+    return <span className="skill" onClick={clearFilters}>[ Clear Filters ]</span>
   }
   return (
     <header className='top-0 z-10 bg-white/70 pt-6 relative'>
@@ -70,17 +61,18 @@ export default function Header({ pathname }: { pathname: string }) {
           </div>
           {pathname === "/" && (
             <div className='m-auto p-6 text-left max-w-[600px] md:pl-[8vw]'>
-              {skills.map((skill) => (
-                <span
-                  className={`skill${
-                    selectedSkill === skill ? " selected" : ""
-                  }`}
-                  onClick={() => handleSkills(skill)}
-                >
-                  {skill}
-                </span>
-              ))}
-              {selectedSkill !== "all" ? selectSkill("all") : null}
+              {
+                skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className={`skill${filters.has(skill) ? " selected" : ""}`}
+                    onClick={() => toggleFilter(skill)}
+                  >
+                    {skill}
+                  </span>
+                ))
+              }
+              {filters.size > 1 ? dropSkills() : null}
             </div>
           )}
         </div>

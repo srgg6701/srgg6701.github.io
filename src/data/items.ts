@@ -8,7 +8,6 @@ export type Item = {
   href?: string;
 };
 
-//type Filter = string;
 export type Filter =
   | "all"
   | "React"
@@ -21,12 +20,10 @@ export type Filter =
   | "Angular"
   | "Joomla";
 
-type PortfolioState = { filter: Filter; setFilter: (f: Filter) => void };
+type PortfolioState = { filters: Set<Filter>; toggleFilter: (f: Filter) => void, clearFilters: () => void };
 
-const ALL_WORKS:/* {
-  [key:string]: Item[]
-} */Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
-  itemsAccenture:[
+const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
+  itemsAccenture: [
     {
       title: "Actenture ESG LLM",
       description: "React/NextJS, Redux, Tailwind, CI/CD",
@@ -154,14 +151,24 @@ const ALL_WORKS:/* {
 };
 
 export const usePortfolio = create<PortfolioState>((set) => ({
-  filter: "all",
-  setFilter: (f) => set({ filter: f }),
+  filters: new Set<Filter>(),
+  toggleFilter: (f) =>
+    set((prev) => {
+      const next = new Set(prev.filters); // копия старого Set
+      next.has(f) ? next.delete(f) : next.add(f);
+      return { filters: next }; // возвращаем новый Set
+    }),
+  clearFilters: () => set({ filters: new Set() }),
 }));
-
-const bySkill = (skill: Filter) => (it: Item) => skill === "all" ? true : (it.description?.includes(skill) ?? false);
 
 export type ListKey = keyof typeof ALL_WORKS;
 
-export function selectList(key: ListKey, skill: Filter): Item[] {
-  return ALL_WORKS[key].filter(bySkill(skill));
+export function selectList(key: ListKey, filters: Set<Filter>): Item[] {
+  if (!filters || filters.size === 0) return ALL_WORKS[key];
+
+  return ALL_WORKS[key].filter((it) => {
+    const desc = it.description ?? "";
+    for (const f of filters) if (desc.includes(f)) return true;
+    return false;
+  });
 }
