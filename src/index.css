@@ -48,6 +48,17 @@ main article .image-box {
 .imgOver, .artOver:hover {
   outline: solid 2px var(--blue-grey);
 }
+.skill {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+.skill:hover {
+  color: #FFF;
+  cursor: pointer;
+  background-color: var(--blue-grey);
+}
 .txtBorderColor {
   color: var(--blue-grey);
 }

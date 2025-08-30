@@ -1,6 +1,6 @@
 import type { Item } from "../data/items";
 
-export function GalleryCard({ item }: { item: Item }) {
+export default function GalleryCard({ item }: { item: Item }) {
   return (
     <article className="group overflow-hidden border border-zinc-200 bg-white shadow-sm hover:shadow-md transition-shadow artOver">
       <a href={item.href} target="_blank" rel="noreferrer" className="a-block">
