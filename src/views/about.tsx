@@ -1,5 +1,5 @@
 export default function Abous () {
   return <>
-    <h1>All Nesessary Private Info Here</h1>
+    <h2>Why you are so curious, dude?</h2>
   </>
 }

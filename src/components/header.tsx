@@ -1,10 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { usePortfolio, type Filter } from "../data/items";
 export default function Header({ pathname }: { pathname: string }) {
   const filters = usePortfolio((s) => s.filters);
   const toggleFilter = usePortfolio((s) => s.toggleFilter);
   const clearFilters = usePortfolio((s) => s.clearFilters);
-  
-  console.log(filters.size, filters);
+  const navigate = useNavigate();
   const skills: Filter[] = [
     "TS",
     "React",
@@ -52,7 +52,11 @@ export default function Header({ pathname }: { pathname: string }) {
           {pathname === "/" && (
             <img
               src='/images/teams.png'
+              alt="telegram: @srgg6701"
+              title="telegram: @srgg6701"
               width='128'
+              onDoubleClick={() => navigate("/about")}
+              style={{aspectRatio: "128/154"}}
             />
           )}
           <div className='m-auto pt-8 md:py-[unset]'>
@@ -86,7 +90,6 @@ export default function Header({ pathname }: { pathname: string }) {
         {pathname === pathAboutStr && (
           <>
             <img
-              style={{aspectRatio: "128/154"}}
               onClick={() => {
                 location.href = "/images/la-sagrada-familia.jpg";
               }}

@@ -34,7 +34,7 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
     },
     {
       title: "The Rich North Sea",
-      description: "Vue.js",
+      description: "Vue.js, Team leading",
       image: "the-rich-north-sea.png",
       year: 2023,
       href: "https://toolbox.therichnorthsea.com/",
@@ -112,7 +112,7 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
     },
     {
       title: "Fast Messenger",
-      description: "jQuery",
+      description: "Backbone.js",
       image: "messenger.png",
       year: 2015,
     },
