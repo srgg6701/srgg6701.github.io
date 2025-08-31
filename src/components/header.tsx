@@ -6,15 +6,17 @@ export default function Header({ pathname }: { pathname: string }) {
   
   console.log(filters.size, filters);
   const skills: Filter[] = [
+    "TS",
     "React",
     "Vue.js",
     "NextJS",
-    "TS",
     "Redux",
     "Mobx",
     "jQuery",
+    "Backbone.js",
     "Angular",
     "Joomla",
+    "Team leading",
   ];
   const pathAboutStr = "/about";
   const partOf = pathname === pathAboutStr ? "Life" : "Portfolio";
@@ -46,10 +48,9 @@ export default function Header({ pathname }: { pathname: string }) {
   return (
     <header className='top-0 z-10 bg-white/70 pt-6 relative'>
       <h1 className='flex gap-8 items-center'>
-        <div className='flex text-center flex-wrap'>
+        <div className='flex text-center flex-wrap md:flex-nowrap items-center'>
           {pathname === "/" && (
             <img
-              className='md:mr-8 m-auto'
               src='/images/teams.png'
               width='128'
             />
@@ -60,7 +61,13 @@ export default function Header({ pathname }: { pathname: string }) {
             <span className='txtBorderColor'>&lt;Part of Experience /&gt;</span>
           </div>
           {pathname === "/" && (
-            <div className='m-auto p-6 text-left max-w-[600px] md:pl-[8vw]'>
+            <div className='
+              flex 
+              flex-wrap 
+              w-full
+              md:w-[52%]
+              mt-6
+              md:mt-0'>
               {
                 skills.map((skill) => (
                   <span
@@ -79,6 +86,7 @@ export default function Header({ pathname }: { pathname: string }) {
         {pathname === pathAboutStr && (
           <>
             <img
+              style={{aspectRatio: "128/154"}}
               onClick={() => {
                 location.href = "/images/la-sagrada-familia.jpg";
               }}

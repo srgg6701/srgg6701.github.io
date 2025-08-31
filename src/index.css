@@ -13,7 +13,8 @@ h1 {
 h2 {
   font-size: 1.2rem;
   font-weight: 600;
-  line-height: 4;
+  line-height: 1.5;
+  margin: 1rem 0;
 }
 main article .image-box {
   background-size: contain;
@@ -53,9 +54,9 @@ main article .image-box {
   display: inline-block;
   font-weight: normal;
   font-size: 1rem;
-  margin: 0 1px;
+  height: 2rem;
+  margin: 1px;
   padding: 0.25rem 1rem;
-  line-height: 2;
 }
 .skill:hover {
   cursor: pointer;

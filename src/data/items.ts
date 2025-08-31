@@ -10,15 +10,17 @@ export type Item = {
 
 export type Filter =
   | "all"
+  | "TS"
   | "React"
   | "Vue.js"
   | "NextJS"
-  | "TS"
   | "Redux"
   | "Mobx"
   | "jQuery"
+  | "Backbone.js"
   | "Angular"
-  | "Joomla";
+  | "Joomla"
+  | "Team leading";
 
 type PortfolioState = { filters: Set<Filter>; toggleFilter: (f: Filter) => void, clearFilters: () => void };
 
