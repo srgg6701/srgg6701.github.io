@@ -52,8 +52,8 @@ export default function Header({ pathname }: { pathname: string }) {
           {pathname === "/" && (
             <img
               src='/images/teams.png'
-              alt="telegram: @srgg6701"
-              title="telegram: @srgg6701"
+              //alt="telegram: @srgg6701"
+              //title="telegram: @srgg6701"
               width='128'
               onDoubleClick={() => navigate("/about")}
               style={{aspectRatio: "128/154"}}

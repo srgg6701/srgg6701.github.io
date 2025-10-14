@@ -23,9 +23,9 @@ export default function App() {
       </main>
       <footer className='mx-auto max-w-6xl px-4 py-8 text-sm text-zinc-600'>
         © {new Date().getFullYear()} Sergey Cleftsow aka{" "}
-        <a href='https://t.me/srgg6701' target='_blank'>
+        {/* <a href='https://t.me/srgg6701' target='_blank'>
+        </a> */}
           <strong>srgg6701</strong>
-        </a>
         . Powered by Vercel.
       </footer>
     </div>
