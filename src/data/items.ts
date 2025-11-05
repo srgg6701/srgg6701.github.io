@@ -68,6 +68,13 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
       href: "https://www.vodafone.com/",
     },
     {
+      title: "Music is my life",
+      description: "HTML5, CSS3, JavaScript",
+      image: "music-is-my-life.jpg",
+      year: 2018,
+      href: "https://music-is-my-life.vercel.app/",
+    },
+    {
       title: "Credit Suisse",
       description: "React, Mobx / Mobx State Tree, TS",
       image: "credit-suisse.png",
