@@ -20,12 +20,27 @@ export type Filter =
   | "Backbone.js"
   | "Angular"
   | "Joomla"
-  | "Team leading";
+  | "Team leading"
+  | "BE integration";
 
 type PortfolioState = { filters: Set<Filter>; toggleFilter: (f: Filter) => void, clearFilters: () => void };
 
 const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
   itemsAccenture: [
+    {
+      title: "FinTech Innovations",
+      description: "React/NextJS, Zustand, Tailwind, BE integration",
+      image: "fti.png ",
+      year: 2025,
+      href: "https://fti-gamma.vercel.app/",
+    },
+    {
+      title: "Super AI Challenge",
+      description: "React/NextJS, Redux, Tailwind",
+      image: "super-ai-challenge.png ",
+      year: 2024,
+      href: "https://super-ai-challenge.vercel.app/",
+    },
     {
       title: "Actenture ESG LLM",
       description: "React/NextJS, Redux, Tailwind, CI/CD",
@@ -34,14 +49,14 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
     },
     {
       title: "The Rich North Sea",
-      description: "Vue.js, Team leading",
+      description: "Vue.js, Team leading, BE integration",
       image: "the-rich-north-sea.png",
       year: 2023,
       href: "https://toolbox.therichnorthsea.com/",
     },
     {
       title: "BMW Classics",
-      description: "React, TS, jsp",
+      description: "React, TS, jsp, BE integration",
       image: "bmw-archive.png",
       year: 2022,
       href: "https://www.bmwgroup-classic.com/",
@@ -83,7 +98,7 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
     },
     {
       title: "Elkjop",
-      description: "Intershop, jQuery",
+      description: "Intershop, jQuery, BE integration",
       image: "elkjop.png",
       year: 2018,
       href: "https://www.elkjop.no/",
@@ -103,7 +118,7 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
     },
     {
       title: "VHI",
-      description: "JavaScript, jQuery, Jade, Jenkins",
+      description: "JavaScript, jQuery, Jade, Jenkins, BE integration",
       image: "vhi.png",
       year: 2016,
       href: "https://www.vhi.ie/",

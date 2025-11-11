@@ -10,7 +10,7 @@ export default function GalleryCard({ item }: { item: Item }) {
           <h3 className="text-base font-semibold leading-tight line-clamp-2">
             {item.title} ({item.year})
           </h3>
-          <p className="mt-2 text-sm text-zinc-600 line-clamp-3">
+          <p title={item.description} className="mt-2 text-sm text-zinc-600 whitespace-nowrap text-ellipsis line-clamp-3">
             {item.description}
           </p>
         </div>
