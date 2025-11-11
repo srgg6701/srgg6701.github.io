@@ -11,6 +11,7 @@ export default function Header({ pathname }: { pathname: string }) {
     "Vue.js",
     "NextJS",
     "Redux",
+    "Zustand",
     "Mobx",
     "jQuery",
     "Backbone.js",

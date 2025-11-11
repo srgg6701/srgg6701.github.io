@@ -15,6 +15,7 @@ export type Filter =
   | "Vue.js"
   | "NextJS"
   | "Redux"
+  | "Zustand"
   | "Mobx"
   | "jQuery"
   | "Backbone.js"
