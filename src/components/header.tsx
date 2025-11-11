@@ -17,8 +17,8 @@ export default function Header({ pathname }: { pathname: string }) {
     "Backbone.js",
     "Angular",
     "Joomla",
-    "Team leading",
     "BE integration",
+    "Team leading",
   ];
   const pathAboutStr = "/about";
   const partOf = pathname === pathAboutStr ? "Life" : "Portfolio";
