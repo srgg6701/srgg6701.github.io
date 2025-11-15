@@ -8,7 +8,7 @@ export default function GalleryCard({ item }: { item: Item }) {
         </div>
         <div className="p-4">
           <h3 className="text-base font-semibold leading-tight line-clamp-2">
-            {item.title} ({item.year})
+            {item.title} {/* { item.year } */}
           </h3>
           <p title={item.description} className="mt-2 text-sm text-zinc-600 whitespace-nowrap text-ellipsis line-clamp-3">
             {item.description}
