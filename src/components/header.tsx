@@ -17,6 +17,7 @@ export default function Header({ pathname }: { pathname: string }) {
     "Backbone.js",
     "Angular",
     "Joomla",
+    "Wordpress",
     "BE integration",
     "Team leading",
   ];

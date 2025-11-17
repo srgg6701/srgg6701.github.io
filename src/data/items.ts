@@ -21,6 +21,7 @@ export type Filter =
   | "Backbone.js"
   | "Angular"
   | "Joomla"
+  | "Wordpress"
   | "Team leading"
   | "BE integration";
 
@@ -61,6 +62,13 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
       image: "bmw-archive.png",
       year: 2022,
       href: "https://www.bmwgroup-classic.com/",
+    },
+    {
+      title: "Accenture Oracle",
+      description: "Wordpress, JS",
+      image: "accenture-oracle.png",
+      year: 2021,
+      href: "https://www.accenture.lv/",
     },
     {
       title: "Carlsberg Group",
@@ -175,10 +183,10 @@ const ALL_WORKS: Record<"itemsAccenture" | "itemsBeforeAccenture", Item[]> = {
   ]
 };
 
-export const usePortfolio = create<PortfolioState>((set) => ({
+export const usePortfolio = create<PortfolioState>((set: Function) => ({
   filters: new Set<Filter>(),
-  toggleFilter: (f) =>
-    set((prev) => {
+  toggleFilter: (f: Filter) =>
+    set((prev: PortfolioState) => {
       const next = new Set(prev.filters); // копия старого Set
       next.has(f) ? next.delete(f) : next.add(f);
       return { filters: next }; // возвращаем новый Set
